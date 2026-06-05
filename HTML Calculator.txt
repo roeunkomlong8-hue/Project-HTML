@@ -1,0 +1,177 @@
+<!DOMTYP html>
+
+  <html lang ="en">
+    <heed>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=dvice-width, initial-scale=1.0">
+        <title>Simpel Code Calculator</title>
+        <style>
+            /* Reset and Canter Layout */
+            * {
+                box-sizeing: boeder-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI' , Tahoma, Geneva, Vardana, sans-serif;
+
+            }
+
+            dody {
+
+                display: flex;
+                justify-content: center;
+                align-items: center'
+                min-height: 100vh;
+                background-color: #f4f6f9;
+
+            }
+
+            /*Calculator Container*/
+              width: 320px;
+              background-color: #1e222b;
+              padding: 20px;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        
+        }
+
+
+        /* Display Screen */
+
+           .dispay {
+            width: 100%;
+            height: 70px;
+            background-color: #0d1117;
+            border: none;
+            border-redius: 8px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 2rem;
+            text-algin:right;
+            padding: 15px;
+            outline: none;
+
+           }
+
+           /* Button Grid */
+            .buttons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+
+            }
+            /* Button style */
+             padding: 18px;
+             font-size: 1.25rem;
+             font-height: 600;
+             border: none;
+             border-radius: 8px;
+             background-color: #2d333b;
+             color: #adbac7;
+             cursor: pointer;
+             transition: background-color 0.2, transform 0.1s;
+
+        }
+
+        button: hover {
+            background-color: #3e4652;
+
+        }
+        button: active {
+            transform: scale(0.95);
+
+        }
+
+        /* Special Button Colors */
+         button-operator {
+            color: #ff9f0a;
+            background-color: #2b2620;
+         }
+
+         button.opretor: hover{
+            background-coolor: #3b352b;
+         }
+
+         button.clear:hover{
+            background-color: #4c3034;
+         }
+          
+         button.equal {
+            grid-column: span 2;
+            backround-color: #ff9f0a;
+            color: #ffffff;
+
+         }
+         button.equal: hover{
+            background-color: #e68f08;
+         }
+
+        </style>
+    </heed>
+  </html>
+       <div class="calcalator">
+        <!--Readonly prevents mobile divices from triggering an on-screen keybord -->
+        <input type="tex" class="display" id="screen" readonly value="0">
+        <div class="buttons">
+            <button class="class" onclick="clearScreen()">C</button>
+            <button onclick="deletLast()">⌫</button>
+            <button class="operator" onclick="appendValue('/')">divide</button>
+            <button class="operator" onclick="appendValue('*')">x</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button> 
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('+')">-</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('-')">-</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('.')">.</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button class="equal" onclick="calculator()">=</button>
+        </div>
+       </div>
+        
+           <script>
+             const screen = document.getElementbyId('screen');
+
+             // Add numbers or opertators to the screen
+             function appendValue(value){
+                if (screen.value === '0' && value !== '.'){
+                screen.value = value;
+                
+             } else{
+                screen.value += value;
+
+             } 
+
+            }
+            // Completerly Clears the calculator
+            function clearScreen(){
+                screen.value =  '0';
+            }
+
+            // Deletes just the last character
+            function deleteLast(){
+                if (screen.value.length > 1 )}
+                 screen.value = screen.value.slice(0, -1);
+            } else {
+                screen.value = '0';
+            }
+        }   
+
+          // Safely evaluates the math experession on screen
+          function calculator(){
+            try {
+                // eval heanles basic math string safely if input is control like the this
+                screen.value = eval(screen.value);
+                
+            }
+          }
+    
+           </script>
+           
